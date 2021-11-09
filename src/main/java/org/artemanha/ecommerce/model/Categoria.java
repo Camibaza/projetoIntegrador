@@ -27,7 +27,7 @@ public class Categoria {
 	private String artesanal;
 	
 	@NotNull
-	private String forma_pagamento;
+	private String formaPagamento;
 	
 	
 	public long getId() {
@@ -43,10 +43,10 @@ public class Categoria {
 		this.artesanal = artesanal;
 	}
 	public String getForma_pagamento() {
-		return forma_pagamento;
+		return formaPagamento;
 	}
 	public void setForma_pagamento(String forma_pagamento) {
-		this.forma_pagamento = forma_pagamento;
+		this.formaPagamento = forma_pagamento;
 	}
 	
 
