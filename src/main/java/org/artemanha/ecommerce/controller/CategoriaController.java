@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * saida, buscar, criação, atualização e delete de informações
  * 
  * @author MarceloNegromonte
- * @since 1.1
+ * @since 1.0
  * 
  *        *
  */

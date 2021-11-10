@@ -26,7 +26,7 @@ public class Usuario {
 	
 	@NotNull
 	@Size(min = 5, max = 100)
-	private String nome_completo;
+	private String nomeCompleto;
 	
 	@NotNull
 	@Size(min = 5, max = 100)
@@ -46,11 +46,11 @@ public class Usuario {
 	}
 
 	public String getNome_completo() {
-		return nome_completo;
+		return nomeCompleto;
 	}
 
-	public void setNome_completo(String nome_completo) {
-		this.nome_completo = nome_completo;
+	public void setNome_completo(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
 	public String getEmail() {
