@@ -22,11 +22,11 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@NotNull
 	@Size(min = 5, max = 100)
-	private String nome_completo;
+	private String nomeCompleto;
 	
 	@NotNull
 	@Size(min = 5, max = 100)
@@ -37,20 +37,20 @@ public class Usuario {
 	private String senha;
 
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	public String getNome_completo() {
-		return nome_completo;
+		return nomeCompleto;
 	}
 
-	public void setNome_completo(String nome_completo) {
-		this.nome_completo = nome_completo;
+	public void setNome_completo(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
 	public String getEmail() {
