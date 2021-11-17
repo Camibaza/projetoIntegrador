@@ -1,6 +1,7 @@
 package org.artemanha.ecommerce.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.artemanha.ecommerce.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +18,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	public List <Usuario> findAllByNomeCompletoContainingIgnoreCase(String nomeCompleto);
 
 	public List <Usuario> findAllByEmailContainingIgnoreCase(String Email);
+
+	public Optional<Usuario> findByNomeCompleto(String userName);
 }
 	
 	
