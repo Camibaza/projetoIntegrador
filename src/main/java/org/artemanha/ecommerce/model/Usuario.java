@@ -36,7 +36,6 @@ public class Usuario {
 	@Size(min = 8, max = 15)
 	private String senha;
 
-	
 	public Long getId() {
 		return id;
 	}
@@ -45,11 +44,11 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getNome_completo() {
+	public String getNomeCompleto() {
 		return nomeCompleto;
 	}
 
-	public void setNome_completo(String nomeCompleto) {
+	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
 	}
 
@@ -68,6 +67,9 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	
+	
 
 	
 }
