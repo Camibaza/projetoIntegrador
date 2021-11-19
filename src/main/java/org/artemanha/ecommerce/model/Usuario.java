@@ -5,8 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
 *Classe utilizada como entidade para usuario no banco de dados
@@ -24,9 +27,10 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
-	@Size(min = 5, max = 100)
-	private String nomeCompleto;
+	@ApiModelProperty(example = "email@email.com.br")
+	@NotNull(message = "O atributo Usuário é Obrigatório!")
+	@Email(message = "O atributo Usuário deve ser um email válido!")
+	private String usuario;
 	
 	@NotNull
 	@Size(min = 5, max = 100)
@@ -44,12 +48,12 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getEmail() {

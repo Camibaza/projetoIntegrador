@@ -2,7 +2,6 @@ package org.artemanha.ecommerce.controller;
 
 import java.util.List;
 
-
 import org.artemanha.ecommerce.model.Produto;
 import org.artemanha.ecommerce.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping(name = "/produto")
+@RequestMapping("/produto")
 @CrossOrigin("*")
 public class ProdutoController {
 	  
