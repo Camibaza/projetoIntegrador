@@ -18,8 +18,14 @@ import org.springframework.stereotype.Repository;
 
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
-	public List<Categoria> findAllByFormaPagamentoContainingIgnoreCase(String formaPagamento);
+	public List<Categoria> findAllByAlimentacaoContainingIgnoreCase(String alimentacao);
 
-	public List<Categoria> findAllByArtesanalContainingIgnoreCase(String artesanal);
+	public List<Categoria> findAllByVestuarioContainingIgnoreCase(String vestuario);
+	
+	public List<Categoria> findAllByCosmeticoContainingIgnoreCase(String cosmetico);
+	
+	public List<Categoria> findAllByUtilitariosContainingIgnoreCase(String utilitarios);
+	
+	
 
 }

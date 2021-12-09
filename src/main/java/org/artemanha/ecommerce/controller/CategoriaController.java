@@ -45,14 +45,24 @@ public class CategoriaController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/artesanal/{artesanal}")
-	public ResponseEntity<List<Categoria>> getByArtesanal(@PathVariable String artesanal) {
-		return ResponseEntity.ok(repository.findAllByArtesanalContainingIgnoreCase(artesanal));
+	@GetMapping("/alimentacao/{alimentacao}")
+	public ResponseEntity<List<Categoria>> getByAlimentacao(@PathVariable String alimentacao) {
+		return ResponseEntity.ok(repository.findAllByAlimentacaoContainingIgnoreCase(alimentacao));
 	}
 
-	@GetMapping("/formapagamento/{formapagamento}")
-	public ResponseEntity<List<Categoria>> getByFormaPagamento(@PathVariable String formaPagamento) {
-		return ResponseEntity.ok(repository.findAllByFormaPagamentoContainingIgnoreCase(formaPagamento));
+	@GetMapping("/cosmetico/{cosmetico}")
+	public ResponseEntity<List<Categoria>> getByCosmetico(@PathVariable String cosmetico) {
+		return ResponseEntity.ok(repository.findAllByCosmeticoContainingIgnoreCase(cosmetico));
+	}
+	
+	@GetMapping("/utilitarios/{utilitarios}")
+	public ResponseEntity<List<Categoria>> getByUtilitarios(@PathVariable String utilitarios) {
+		return ResponseEntity.ok(repository.findAllByUtilitariosContainingIgnoreCase(utilitarios));
+	}
+	
+	@GetMapping("/vestuario/{vestuario}")
+	public ResponseEntity<List<Categoria>> getByVestuario(@PathVariable String vestuario) {
+		return ResponseEntity.ok(repository.findAllByVestuarioContainingIgnoreCase(vestuario));
 	}
 
 	@PostMapping

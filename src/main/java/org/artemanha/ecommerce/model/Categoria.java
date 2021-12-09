@@ -27,11 +27,17 @@ public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	
+	private String vestuario;
+	
+	private String alimentacao;
+	
+	private String cosmetico;
+	
+	private String utilitarios;
 
-	@NotNull
-	private String artesanal;
-
-	@NotNull
+	
 	private String formaPagamento;
 
 	@ManyToOne
@@ -46,12 +52,36 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public String getArtesanal() {
-		return artesanal;
+	public String getVestuario() {
+		return vestuario;
 	}
 
-	public void setArtesanal(String artesanal) {
-		this.artesanal = artesanal;
+	public void setVestuario(String vestuario) {
+		this.vestuario = vestuario;
+	}
+
+	public String getAlimentacao() {
+		return alimentacao;
+	}
+
+	public void setAlimentacao(String alimentacao) {
+		this.alimentacao = alimentacao;
+	}
+
+	public String getCosmetico() {
+		return cosmetico;
+	}
+
+	public void setCosmetico(String cosmetico) {
+		this.cosmetico = cosmetico;
+	}
+
+	public String getUtilitarios() {
+		return utilitarios;
+	}
+
+	public void setUtilitarios(String utilitarios) {
+		this.utilitarios = utilitarios;
 	}
 
 	public String getFormaPagamento() {
@@ -70,5 +100,6 @@ public class Categoria {
 		this.produto = produto;
 	}
 
+	
 	
 }

@@ -3,6 +3,8 @@ package org.artemanha.ecommerce.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.artemanha.ecommerce.model.Usuario;
 import org.artemanha.ecommerce.repository.UsuarioRepository;
 import org.artemanha.ecommerce.model.UserLogin;
@@ -29,19 +31,39 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	@Autowired
+	private UsuarioRepository repository;
 	
-	
-	@PostMapping("/logar")
-	public ResponseEntity<org.artemanha.ecommerce.model.UserLogin> Autentication(@RequestBody Optional<org.artemanha.ecommerce.model.UserLogin> user){
-		return usuarioService.logar(user).map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
-	}
-	
-	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(usuarioService.cadastrarUsuario(usuario));
+	@GetMapping("/all")
+	public ResponseEntity <List<Usuario>> getAll() {
+	        return ResponseEntity.ok(repository.findAll());
 	}
 
+	@GetMapping("/{id}")
+	public ResponseEntity<Usuario> getById(@PathVariable long id) {
+	        return repository.findById(id)
+		        .map(resp -> ResponseEntity.ok(resp))
+		        .orElse(ResponseEntity.notFound().build());
+	}
 	
+	@PutMapping("/atualizar")
+	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario){		
+	        return usuarioService.atualizarUsuario(usuario)
+	                .map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
+	                .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+	}
+
+
+	@PostMapping("/logar")
+	public ResponseEntity<UserLogin> Autentication(@Valid @RequestBody Optional<UserLogin> user) {
+		return usuarioService.logarUsuario(user).map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	}
+
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Usuario> Post(@Valid @RequestBody Usuario usuario) {
+		return usuarioService.cadastrarUsuario(usuario)
+				.map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
+				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+	}
 }
