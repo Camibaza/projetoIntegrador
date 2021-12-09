@@ -56,9 +56,9 @@ public class Usuario {
 	@JsonIgnoreProperties({ "usuario" })
 	private List<Produto> meusProdutos = new ArrayList<>();
 	
-	@Deprecated
+	
 	public Usuario() {
-		super();
+		
 	}
 	
 	public Usuario(String usuario, String email, String senha) {
