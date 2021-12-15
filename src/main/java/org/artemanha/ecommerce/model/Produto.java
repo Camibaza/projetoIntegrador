@@ -1,5 +1,6 @@
 package org.artemanha.ecommerce.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -44,9 +45,37 @@ public class Produto {
 	@NotNull
 	private int quantidade;
 	
-	@OneToMany(mappedBy ="produto", cascade = CascadeType.ALL)
+	@NotNull
+	@Size(min = 0, max = 200)
+	private String imagemProduto;
+	
+	@NotNull
+	@Size(min = 0, max = 200)
+	private String avalicaoProduto;
+	
+	public String getImagemProduto() {
+		return imagemProduto;
+	}
+
+	public void setImagemProduto(String imagemProduto) {
+		this.imagemProduto = imagemProduto;
+	}
+
+	public String getAvalicaoProduto() {
+		return avalicaoProduto;
+	}
+
+	public void setAvalicaoProduto(String avalicaoProduto) {
+		this.avalicaoProduto = avalicaoProduto;
+	}
+
+	@OneToMany(mappedBy ="produto", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("produto")
-	private List <Categoria> categoria;
+	private List <Categoria> categoria = new ArrayList<>();
+	
+	@OneToMany(mappedBy ="usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("usuario")
+	private List <Usuario> usuario = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -96,4 +125,15 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
+	}
+
+	
+	
+	
 }

@@ -2,24 +2,21 @@ package org.artemanha.ecommerce.model;
 
 public class UserLogin {
 
+	private long id;
 	private String nome;
 	private String usuario;
 	private String senha;
 	private String token;
+	private String foto;
+	private String tipo;
 	
-	public UserLogin(String nome, String usuario, String senha, String token) {
-		this.nome = nome;
-		this.senha = senha;
-		this.token = token;
-		this.usuario = usuario;
-		
+	
+	public long getId() {
+		return id;
 	}
-	
-	public UserLogin() {
-	
+	public void setId(long id) {
+		this.id = id;
 	}
-	
-	
 	public String getNome() {
 		return nome;
 	}
@@ -44,6 +41,21 @@ public class UserLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
+	
+	
 	
 	
 }
