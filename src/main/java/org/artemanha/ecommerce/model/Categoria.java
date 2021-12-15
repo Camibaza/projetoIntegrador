@@ -29,24 +29,16 @@ public class Categoria {
 	private long id;
 	
 	
-	private String vestuario;
+	private String categoria;
 	
-	private String alimentacao;
-	
-	private String cosmetico;
-	
-	private String utilitarios;
 
-	private String formaPagamento;
-	
-	private String decoracao;
 
-	public String getDecoracao() {
-		return decoracao;
+	public String getCategoria() {
+		return categoria;
 	}
 
-	public void setDecoracao(String decoracao) {
-		this.decoracao = decoracao;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 	@ManyToOne
@@ -61,45 +53,6 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public String getVestuario() {
-		return vestuario;
-	}
-
-	public void setVestuario(String vestuario) {
-		this.vestuario = vestuario;
-	}
-
-	public String getAlimentacao() {
-		return alimentacao;
-	}
-
-	public void setAlimentacao(String alimentacao) {
-		this.alimentacao = alimentacao;
-	}
-
-	public String getCosmetico() {
-		return cosmetico;
-	}
-
-	public void setCosmetico(String cosmetico) {
-		this.cosmetico = cosmetico;
-	}
-
-	public String getUtilitarios() {
-		return utilitarios;
-	}
-
-	public void setUtilitarios(String utilitarios) {
-		this.utilitarios = utilitarios;
-	}
-
-	public String getFormaPagamento() {
-		return formaPagamento;
-	}
-
-	public void setFormaPagamento(String formaPagamento) {
-		this.formaPagamento = formaPagamento;
-	}
 
 	public Produto getProduto() {
 		return produto;

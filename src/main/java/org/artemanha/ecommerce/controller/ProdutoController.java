@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping("/produtos")
 @CrossOrigin("*")
 public class ProdutoController {
 	  
@@ -40,10 +40,7 @@ public class ProdutoController {
 	public ResponseEntity<Produto> getById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
-	@GetMapping("/codigo/{codigo}")
-	public ResponseEntity<List<Produto>> getByCodigo(@PathVariable String codigo){
-		return ResponseEntity.ok(repository.findAllByCodigoContainingIgnoreCase(codigo));
-	}
+	
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Produto>> getByNome(@PathVariable String nome){
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
