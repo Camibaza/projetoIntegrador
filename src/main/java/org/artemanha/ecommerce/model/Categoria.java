@@ -37,8 +37,17 @@ public class Categoria {
 	
 	private String utilitarios;
 
-	
 	private String formaPagamento;
+	
+	private String decoracao;
+
+	public String getDecoracao() {
+		return decoracao;
+	}
+
+	public void setDecoracao(String decoracao) {
+		this.decoracao = decoracao;
+	}
 
 	@ManyToOne
 	@JsonIgnoreProperties("categoria")
