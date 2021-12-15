@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping("/categorias")
 @CrossOrigin("*")
 public class CategoriaController {
 
@@ -45,24 +45,10 @@ public class CategoriaController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/alimentacao/{alimentacao}")
-	public ResponseEntity<List<Categoria>> getByAlimentacao(@PathVariable String alimentacao) {
-		return ResponseEntity.ok(repository.findAllByAlimentacaoContainingIgnoreCase(alimentacao));
-	}
-
-	@GetMapping("/cosmetico/{cosmetico}")
-	public ResponseEntity<List<Categoria>> getByCosmetico(@PathVariable String cosmetico) {
-		return ResponseEntity.ok(repository.findAllByCosmeticoContainingIgnoreCase(cosmetico));
-	}
 	
-	@GetMapping("/utilitarios/{utilitarios}")
-	public ResponseEntity<List<Categoria>> getByUtilitarios(@PathVariable String utilitarios) {
-		return ResponseEntity.ok(repository.findAllByUtilitariosContainingIgnoreCase(utilitarios));
-	}
-	
-	@GetMapping("/vestuario/{vestuario}")
-	public ResponseEntity<List<Categoria>> getByVestuario(@PathVariable String vestuario) {
-		return ResponseEntity.ok(repository.findAllByVestuarioContainingIgnoreCase(vestuario));
+	@GetMapping("/categoria/{categoria}")
+	public ResponseEntity<List<Categoria>> getByCategoria(@PathVariable String categoria) {
+		return ResponseEntity.ok(repository.findAllByCategoriaContainingIgnoreCase(categoria));
 	}
 
 	@PostMapping

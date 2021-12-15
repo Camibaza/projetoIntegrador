@@ -44,7 +44,7 @@ public class Usuario {
 	private String email;
 	
 	@NotNull
-	@Size(min = 8, max = 15)
+	@Size(min = 8, max = 150)
 	private String senha;
 
 	@Size(min = 0, max = 100)
