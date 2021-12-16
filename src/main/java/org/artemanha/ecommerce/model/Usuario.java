@@ -53,8 +53,8 @@ public class Usuario {
 	private String tipo;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties({ "usuario" })
-	private List<Produto> meusProdutos = new ArrayList<>();
+	@JsonIgnoreProperties("usuario")
+	private List<Produto> meusProdutos;
 	
 	
 	public Usuario() {

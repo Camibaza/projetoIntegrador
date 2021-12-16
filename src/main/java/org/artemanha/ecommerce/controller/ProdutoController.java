@@ -32,7 +32,7 @@ public class ProdutoController {
 	private ProdutoRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Produto>> getAll(){
+	public ResponseEntity<List<Produto>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
