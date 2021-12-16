@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -47,31 +48,15 @@ public class Produto {
 	
 	@NotNull
 	@Size(min = 0, max = 200)
-	private String avalicaoProduto;
+	private String avaliacaoProduto;
 	
-	public String getImagemProduto() {
-		return imagemProduto;
-	}
-
-	public void setImagemProduto(String imagemProduto) {
-		this.imagemProduto = imagemProduto;
-	}
-
-	public String getAvalicaoProduto() {
-		return avalicaoProduto;
-	}
-
-	public void setAvalicaoProduto(String avalicaoProduto) {
-		this.avalicaoProduto = avalicaoProduto;
-	}
-
-	@OneToMany(mappedBy ="produto", cascade = CascadeType.REMOVE)
+	@ManyToOne
 	@JsonIgnoreProperties("produto")
-	private List <Categoria> categoria = new ArrayList<>();
+	private Categoria categoria;
 	
-	@OneToMany(mappedBy ="usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("usuario")
-	private List <Usuario> usuario = new ArrayList<>();
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 
 	public long getId() {
 		return id;
@@ -105,23 +90,37 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public List<Categoria> getCategoria() {
+	public String getImagemProduto() {
+		return imagemProduto;
+	}
+
+	public void setImagemProduto(String imagemProduto) {
+		this.imagemProduto = imagemProduto;
+	}
+
+	public String getAvaliacaoProduto() {
+		return avaliacaoProduto;
+	}
+
+	public void setAvaliacaoProduto(String avaliacaoProduto) {
+		this.avaliacaoProduto = avaliacaoProduto;
+	}
+
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(List<Categoria> categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
-	public List<Usuario> getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(List<Usuario> usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-	
 	
 	
 }
